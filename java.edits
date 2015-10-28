@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8">
+    <title>STI Labs - JavaScript</title>
+
+    <!-- CSS FILES -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- TWBS -->
+    <link href="assets/plugins/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="assets/plugins/twitter-bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+
+    <!-- Alertify -->
+    <link href="assets/plugins/alertify.js-0.3.11/alertify.js-0.3.11/themes/alertify.core.css" rel="stylesheet" type="text/css">
+    <link href="assets/plugins/alertify.js-0.3.11/alertify.js-0.3.11/themes/alertify.default.css" rel="stylesheet" type="text/css">
+
+    <!-- jQueryUI -->
+    <link href="assets/plugins/jquery-ui-1.11.4.custom/jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet" type="text/css">
+
+    <!-- SummerNote -->
+    <link href="assets/plugins/dist/summernote.css" rel="stylesheet" type="text/css">
+    <link href="assets/plugins/dist/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- jGrowl -->
+    <link href="assets/plugins/jGrowl-master/jquery.jgrowl.min.css" rel="stylesheet" type="text/css">
+
+    <!-- GoogleMaps -->
+    <script type="text/javascript"
+            src="http://maps.google.com/maps/api/js?
+                      key=mykey&sensor=false">
+    </script>
+
+</head>
+<body>
+
+<main class="container">
+    <!-- light bulb -->
+    <div id="light-bulb">
+        Light bulb is <span class="status">off</span>
+    </div>
+
+    <hr/>
+
+    <!-- date picker -->
+    <p>Date: <input type="text" id="datepicker"></p>
+
+    <hr/>
+
+    <!-- date picker - range -->
+    <label for="from">From</label>
+    <input type="text" id="from" name="from">
+    <label for="to">To </label>
+    <input type="text" id="to" name="to">
+
+    <hr/>
+
+    <!-- SummerNote -->
+    <div id="summernote">Hello Summernote</div>
+
+</main>
+
+<!-- JS FILES -->
+<script src="assets/plugins/jquery/jquery-1.11.3.js"></script>
+<script src="assets/plugins/nicescroll/jquery.nicescroll.js"></script>
+<script src="assets/plugins/twitter-bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/alertify.js-0.3.11/alertify.js-0.3.11/lib/alertify.min.js"></script>
+<script src="assets/plugins/jquery-ui-1.11.4.custom/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/plugins/dist/summernote.min.js"></script>
+<script src="assets/plugins/jGrowl-master/jquery.jgrowl.min.js"></script>
+
+<!-- Nicescroll Initialization -->
+<script>
+    $(document).ready(
+            function() {
+                $("#thisdiv").niceScroll({cursorcolor:"#00F"});
+            }
+    );
+</script>
+
+<!-- SummerNote Initialization -->
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+</script>
+
+<script>
+    $('.summernote').summernote({
+        height: 500,                 // set editor height
+
+        minHeight: 500,             // set minimum height of editor
+        maxHeight: 1000,             // set maximum height of editor
+
+        focus: true                 // set focus to editable area after initializing summernote
+    });
+</script>
+
+<!-- jGrowl Initialization -->
+<script>
+    // Sample 1
+    $.jGrowl("Hello world!"),
+    // Sample 2
+    $.jGrowl("Stick this!", { sticky: true }),
+    // Sample 3
+    $.jGrowl("A message with a header", { header: 'Important' }),
+    // Sample 4
+    $.jGrowl("A message that will live a little longer.", { life: 10000 }),
+    // Sample 5
+    $.jGrowl("A message with a beforeOpen callback and a different opening animation.", {
+        beforeClose: function(e,m) {
+            alert('About to close this notification!');
+        },
+        animateOpen: {
+            height: 'show'
+        }
+    });
+</script>
+
+</body>
+
+<!-- GoogleMaps Initialization -->
+
+<body onload="GetMap()">
+<div id="mapContainer"
+     style="width:500px;height:500px">
+</div>
+<script type="text/javascript">
+    function GetMap() {
+        var latlng =
+                new google.maps.LatLng(-34.397, 150.644);
+        var myOptions = {
+            zoom: 8,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var container = document.getElementById(
+                "mapContainer");
+        map = new google.maps.Map(container,
+                myOptions);
+    }
+</script>
+
+</body>
+</html>
